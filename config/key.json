@@ -1,0 +1,9 @@
+{
+    "database" : {
+        "host"            : "",
+        "user"            : "",
+        "password"        : "",
+        "database"        : ""
+    },
+    "TokenSecret" : ""
+}
