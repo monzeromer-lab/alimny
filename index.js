@@ -49,11 +49,7 @@ app.use(function (req, res, next) {
 })
 
 /* port listener */
-// app.listen(PORT , ()=>{
-//     console.log(`App Running at http://localhost:${PORT}/`)
-// })
-
-server.listen(PORT, '192.168.43.41' || HOST, () => {
+server.listen(PORT,  HOST || '192.168.43.41' , () => {
     console.log(`Server is running on http://${HOST}:${PORT}`);
 });
 
