@@ -44,9 +44,6 @@ app.use(function (err, req, res, next) {
     res.status(500).json({error : true , message : `It's okay it's not your device! our server down! error message : ${err.message} error log:  ${err.stack}`})
 })
 
-app.use(function (req, res, next) {
-    console.log(req.url)
-})
 
 /* port listener */
 server.listen(PORT,  HOST || '192.168.43.41' , () => {
