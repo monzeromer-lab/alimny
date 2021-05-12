@@ -5,6 +5,7 @@ const HOST = require('./config/keys.json').host
 const webSocketEvent = require('./config/webSocketEvents.json')
 const webSocketNatifications = require('./websockets/natifications')
 const webSocketOptions = require('./config/webSocketOptions.json')
+require('stackify-node-apm')
 
 /* create the request Listener */
 const app = express()
@@ -20,10 +21,11 @@ app.use(express.static('public'))
 
 /* external api routers */
 app.use('/api/' , require('./api/index'))
+app.use('/api/' , require('./api/users/admin/signup'))
 
 /* built in Routers */
 app.get("*" , (req , res)=>{
-    res.status(404).json({error : true , message: "not found!" , data : []})
+        res.status(404).json({error : true , message: "not found!" , data : []}) 
 })
 
 app.post("*" , (req , res)=>{
