@@ -20,8 +20,7 @@ app.use(express.json())
 app.use(express.static('public'))
 
 /* external api routers */
-app.use('/api/' , require('./api/index'))
-app.use('/api/' , require('./api/users/admin/signup'))
+app.use('/' , require('./api/index'))
 
 /* built in Routers */
 app.get("*" , (req , res)=>{
@@ -29,6 +28,7 @@ app.get("*" , (req , res)=>{
 })
 
 app.post("*" , (req , res)=>{
+    console.log(req.url)
     res.status(404).json({error : true , message: "not found!" , data : []})
 })
 
@@ -48,7 +48,7 @@ app.use(function (err, req, res, next) {
 
 
 /* port listener */
-server.listen(PORT,  HOST || '192.168.43.41' , () => {
+server.listen(PORT,   '192.168.43.41' || HOST, () => {
     console.log(`Server is running on http://${HOST}:${PORT}`);
 });
 

@@ -1,7 +1,5 @@
 const indexRouter = require('express').Router()
 
-indexRouter.get('/home' , (req , res)=>{
-    res.status(200).json({error: false , message : 'success!' , data : []})
-})
+indexRouter.use('/api' , require('./users/usersEndpoints'))
 
 module.exports = indexRouter

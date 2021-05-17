@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs')
 
 signupRouter.use(express.json())
 
-signupRouter.get('/users/admin/signup', (req, res  , next) => {
+signupRouter.get('/', (req, res  , next) => {
 bcrypt.genSalt(10, function(err, salt) {
     bcrypt.hash(req.body.password, salt, function(err, hash) {
         MySQLdatabase.query(`INSERT INTO users (username , first_name , last_name , birth_date , email , password ) VALUES ( ${MySQLdatabase.escape(req.body.username)} , ${ MySQLdatabase.escape(req.body.first_name)} , ${ MySQLdatabase.escape(req.body.last_name)} , ${ MySQLdatabase.escape(req.body.birth_date)} , ${ MySQLdatabase.escape(req.body.email)} , ${ MySQLdatabase.escape(hash)});` , (err , result)=>{
