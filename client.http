@@ -1,13 +1,13 @@
-POST http://192.168.43.41:2022/api/users/students/login HTTP/1.1
+POST http://192.168.43.41:2022/api/users/teachers/signup HTTP/1.1
 Content-Type: application/json
 
 {
-"username":"monzersmiledev",
+"username":"smiledevsd",
 "first_name" : "Monzer",
 "last_name" : "Omer",
-"profile_pic" : "",
+"profile_pic" : "/hi/mg",
 "birth_date" : 0,
-"email" : "nezonru87@yahoo.com",
+"email" : "wizmgbrown@gmail.com",
 "password" : "password",
 "sex" : "male"
 }

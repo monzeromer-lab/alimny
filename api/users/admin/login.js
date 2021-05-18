@@ -28,7 +28,7 @@ if (err) {
                 role : result[0].role,
                 email : result[0].email
             },
-            token : null  
+            token : undefined  
         }
         if (state){
             data.token = JWT.sign({ data: data.profile}, JsonWebTokenCode, { expiresIn: '31d' })
