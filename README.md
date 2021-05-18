@@ -58,4 +58,4 @@ Build By Monzer Omer
  Project inspired by [Code_sudan](https://codesudan.io/) and [Discord](https://discord.com/)
 
 ## Contact
-Created by [@monzersmiledev](https://twitter.com/monzersmiledev/) - feel free to contact me!
+Created by [@monzersmiledev](https://twitter.com/monzersmiledev/) - feel free to contact me and to contribute with me please!
