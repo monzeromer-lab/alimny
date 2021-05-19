@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
    
 const upload = multer({ storage: storage })
 signupRouter.use(express.json())
-signupRouter.use(express.urlencoded())
+signupRouter.use(express.urlencoded({ extended: true }))
 
 signupRouter.post('/', upload.single('image') , (req, res  , next) => {
 console.log(req.body.username)

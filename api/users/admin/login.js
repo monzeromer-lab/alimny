@@ -6,7 +6,7 @@ const JWT = require('jsonwebtoken')
 const JsonWebTokenCode = require('../../../config/keys.json').TokenSecret
 
 loginRouter.use(express.json())
-loginRouter.use(express.urlencoded())
+loginRouter.use(express.urlencoded({ extended: true }))
 
 loginRouter.post('/', (req, res , next) => {
 MySQLdatabase.query(`SELECT * FROM users WHERE email = ${MySQLdatabase.escape(req.body.email)};` , (err , result)=>{
