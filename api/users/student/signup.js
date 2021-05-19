@@ -1,5 +1,5 @@
 const express = require('express')
-const signupRouter = require('express').Router()
+const signupRouter = require('express')()
 const MySQLdatabase = require('../../../modules/database')
 const bcrypt = require('bcryptjs')
 const multer  = require('multer')

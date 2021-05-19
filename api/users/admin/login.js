@@ -1,5 +1,5 @@
 const express = require('express')
-const loginRouter = require('express').Router()
+const loginRouter = require('express')()
 const MySQLdatabase = require('../../../modules/database')
 const bcrypt = require('bcryptjs')
 const JWT = require('jsonwebtoken')
