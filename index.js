@@ -5,7 +5,14 @@ const HOST = require('./config/keys.json').host
 const webSocketEvent = require('./config/webSocketEvents.json')
 const webSocketNatifications = require('./websockets/natifications')
 const webSocketOptions = require('./config/webSocketOptions.json')
+const rateLimit = require("express-rate-limit")
 require('stackify-node-apm')
+
+const limiter = rateLimit({
+    max: 100,
+    windowMs: 60 * 60 * 1000,
+    message: "Too many request from this IP"
+})
 
 /* create the request Listener */
 const app = express()
@@ -15,6 +22,9 @@ const server = http.createServer(app);
 
 /* handle Json */
 app.use(express.json())
+
+/* Rate Limit */
+app.use(limiter)
 
 /* serving static files */
 app.use(express.static('public'))
