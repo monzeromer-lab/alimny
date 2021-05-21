@@ -9,6 +9,7 @@ loginRouter.use(express.json())
 loginRouter.use(express.urlencoded({ extended: true }))
 
 loginRouter.post('/', (req, res , next) => {
+    console.log(req.body)
 MySQLdatabase.query(`SELECT * FROM users WHERE email = ${MySQLdatabase.escape(req.body.email)};` , (err , result)=>{
 if (err) {
     next(err)

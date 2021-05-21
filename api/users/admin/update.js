@@ -1,24 +1,18 @@
+const express = require("express")
 const updateRouter = require("express")()
-const FileSystem = require("fs")
-const multer = require("multer")
-const MySqlDatabase = require('../../../modules/database')
-const path = require('path')
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './public/images')
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-    }
-  })
-   
-const upload = multer({ storage: storage })
-updateRouter.post("/" , upload.single("image"), (req, res, next)=>{
-    MySqlDatabase.query(`SELECT * FROM users WHERE email = ${req.UserData.email}` , (err , result)=>{
+const MySqlDatabase = require('../../../modules/database')
+const IsAuthenteacted = require('../../../validition/Auth')
+const IsOwner = require('../../../validition/profileOwner')
+
+updateRouter.use(express.json())
+updateRouter.use(express.urlencoded({extended : true}))
+
+
+updateRouter.post("/" , IsAuthenteacted , IsOwner, (req, res, next)=>{
+    MySqlDatabase.query(`SELECT * FROM users WHERE email = ${MySqlDatabase.escape(req.UserData.data.email)};` , (err , result)=>{
         err ? next(err) : result.length == 0 ? res.status(401).json({error : true , message : "please signup" , data: []}) : 
-    FileSystem.unlinkSync(result[0].profile_pic) 
-    MySqlDatabase.query(`INSERT INTO users (username , profile_pic , birth_date , first_name , last_name ) VALUSE ( ${MySqlDatabase.escape(req.body.username)} , ${MySqlDatabase.escape(req.file.path)} , ${MySqlDatabase.escape(req.body.birth_date)} , ${MySqlDatabase.escape(req.body.first_name)} , ${MySqlDatabase.escape(req.body.last_name)} )` , (err , result)=>{
+    MySqlDatabase.query(`UPDATE users SET username = ${MySqlDatabase.escape(req.body.username)} , birth_date = ${MySqlDatabase.escape(req.body.birth_date)} , first_name = ${MySqlDatabase.escape(req.body.first_name)}, last_name = ${MySqlDatabase.escape(req.body.last_name)} WHERE email = ${MySqlDatabase.escape(req.UserData.data.email)};` , (err , result)=>{
     err ? next(err) : res.status(201).json({error : false , message : "Profile Updated" , data : result})
 })
 })
