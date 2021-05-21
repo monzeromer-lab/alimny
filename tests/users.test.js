@@ -40,7 +40,7 @@ it('should update',() => {
 
   supertest(app)
   .post("/api/users/admin/update")
-  .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo0NSwiZmlyc3ROYW1lIjoiTW9uemVyIiwibGFzdE5hbWUiOiJPbWVyIiwiUHJvZmxlIjoicHVibGljXFxpbWFnZXNcXGltYWdlLTE2MjE2MTY5MzQ0MTguanBnIiwiYmlydGhEYXRlIjoxMSwidXNlcm5hbWUiOiJtb256ZXJzbWlsZWRldiIsInJvbGUiOjEsImVtYWlsIjoibmV6b25ydTg3QHlhaG9vLmNvbSJ9LCJpYXQiOjE2MjE2MTcxODEsImV4cCI6MTYyNDI5NTU4MX0.FHKMzCzTdmwyUlMnrnXlc6umnv_tAAQCmjzigYl45nI')
+  .set('Authorization', 'Bearer ')
   .field("email", "wizmg@gmail.com")
   .field("password" , "password")
   .field("username" , "monzersmiledev")
