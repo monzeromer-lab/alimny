@@ -5,14 +5,14 @@ const HOST = require('./config/keys.json').host
 const webSocketEvent = require('./config/webSocketEvents.json')
 const webSocketNatifications = require('./websockets/natifications')
 const webSocketOptions = require('./config/webSocketOptions.json')
-const rateLimit = require("express-rate-limit")
+const RateLimit = require("express-rate-limit")
 require('stackify-node-apm')
 
-const limiter = rateLimit({
-    max: 100,
-    windowMs: 60 * 60 * 1000,
-    message: "Too many request from this IP"
-})
+
+const limiter = new RateLimit({
+  windowMs: 1*60*1000, // 1 minute
+  max: 5
+});
 
 /* create the request Listener */
 const app = express()
