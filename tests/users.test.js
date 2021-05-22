@@ -40,7 +40,7 @@ it('should update',() => {
 
   supertest(app)
   .post("/api/users/admin/update")
-  .set('Authorization', 'Bearer ')
+  .set('Authorization', '')
   .field("email", "wizmg@gmail.com")
   .field("password" , "password")
   .field("username" , "monzersmiledev")
