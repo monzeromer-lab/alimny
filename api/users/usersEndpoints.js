@@ -1,7 +1,7 @@
-const users = require('express').Router()
+const users = require("express").Router();
 
-users.use('/users' , require('./admin/index'))
-users.use('/users' , require('./student/index'))
-users.use('/users' , require('./teacher/index'))
+users.use("/" , require("./admin/index"));
+users.use("/" , require("./student/index"));
+users.use("/" , require("./teacher/index"));
 
-module.exports = users
+module.exports = users;

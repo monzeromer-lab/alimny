@@ -1,8 +1,8 @@
-const supertest = require('supertest')
-const app = require('../api/index')
-
-describe('admin login Endpoint',() => { 
-    it('should signup',  () => {
+/* eslint-disable no-undef */
+const supertest = require("supertest");
+const app = require("../api/index");
+describe("admin login Endpoint",() => { 
+    it("should signup",  () => {
 
        supertest(app)
        .post("/api/users/admin/signup")
@@ -14,12 +14,12 @@ describe('admin login Endpoint',() => {
        .field("birth_date" , 0)
        .attach("image", "../public/images/image-1621410473913.jpg")
        .expect(response => {
-         expect(response.status).toBe(201)
-         done()
-       })
-     })
+         expect(response.status).toBe(201);
+         done();
+       });
+     });
 
-it('should login',() => {
+it("should login",() => {
 
   supertest(app)
   .post("/api/users/admin/signup")
@@ -31,16 +31,16 @@ it('should login',() => {
   .field("birth_date" , 0)
   .attach("image", "../public/images/image-1621410473913.jpg")
   .expect(response => {
-    expect(response.status).toBe(202)
-    done()
-  })
-})
+    expect(response.status).toBe(202);
+    done();
+  });
+});
 
-it('should update',() => {
+it("should update",() => {
 
   supertest(app)
   .post("/api/users/admin/update")
-  .set('Authorization', '')
+  .set("Authorization", "")
   .field("email", "wizmg@gmail.com")
   .field("password" , "password")
   .field("username" , "monzersmiledev")
@@ -50,14 +50,14 @@ it('should update',() => {
   .field("profileId" , 43)
   .attach("image", "../public/images/image-1621410473913.jpg")
   .expect(response => {
-    expect(response.status).toBe(201)
-    done()
-  })
-})
-})
+    expect(response.status).toBe(201);
+    done();
+  });
+});
+});
 
-describe('students Endpoint', () => { 
-  it('should signup',  () => {
+describe("students Endpoint", () => { 
+  it("should signup",  () => {
       supertest(app)
      .post("/api/users/students/signup")
      .field("email", "wizmgbrown@gmail.com")
@@ -69,12 +69,12 @@ describe('students Endpoint', () => {
      .field("birth_date" , 0)
      .attach("image", "../public/images/image-1621410473913.jpg")
      .expect(response => {
-       expect(response.status).toBe(201)
-       done()
-     })
-   })
+       expect(response.status).toBe(201);
+       done();
+     });
+   });
 
-it('should login',  () => {
+it("should login",  () => {
  supertest(app)
 .post("/api/users/students/signup")
 .field("email", "wizmgbrown@gmail.com")
@@ -86,14 +86,14 @@ it('should login',  () => {
 .field("sex" , "male")
 .attach("image", "../public/images/image-1621410473913.jpg")
 .expect(response => {
-  expect(response.status).toBe(202)
-  done()
-})
-})
-})
+  expect(response.status).toBe(202);
+  done();
+});
+});
+});
 
-describe('teachers Endpoint', () => { 
-  it('should signup',  () => {
+describe("teachers Endpoint", () => { 
+  it("should signup",  () => {
       supertest(app)
      .post("/api/users/teachers/signup")
      .field("email", "wizmgbrown@gmail.com")
@@ -105,12 +105,12 @@ describe('teachers Endpoint', () => {
      .field("birth_date" , 0)
      .attach("image", "../public/images/image-1621410473913.jpg")
      .expect(response => {
-       expect(response.status).toBe(201)
-       done()
-     })
-   })
+       expect(response.status).toBe(201);
+       done();
+     });
+   });
 
-it('should login',  () => {
+it("should login",  () => {
  supertest(app)
 .post("/api/users/teachers/signup")
 .field("email", "wizmgbrown@gmail.com")
@@ -122,8 +122,8 @@ it('should login',  () => {
 .field("sex" , "male")
 .attach("image", "../public/images/image-1621410473913.jpg")
 .expect(response => {
-  expect(response.status).toBe(202)
-  done()
-})
-})
-})
+  expect(response.status).toBe(202);
+  done();
+});
+});
+});

@@ -1,7 +1,7 @@
-const index = require('express').Router()
+const index = require("express").Router();
 
-index.use('/teachers/login' , require('./login'))
+index.use("/teachers/login" , require("./login"));
 
-index.use('/teachers/signup' , require('./signup'))
+index.use("/teachers/signup" , require("./signup"));
 
-module.exports = index
+module.exports = index;
