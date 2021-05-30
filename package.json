@@ -13,12 +13,6 @@
     "JWT",
     "Socket.io"
   ],
-  "jest": {
-    "testEnvironment": "node",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ]
-  },
   "author": "Monzer Omer",
   "license": "ISC",
   "dependencies": {

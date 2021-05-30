@@ -62,6 +62,8 @@ server.listen(PORT,   "192.168.43.41" || HOST, () => {
     console.log(`Server is running on http://${HOST}:${PORT}`);
 });
 
+module.exports = app;
+
 /* webSockets */
 const webSocket = require("socket.io")(server, webSocketOptions);
 
