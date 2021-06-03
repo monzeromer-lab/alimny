@@ -26,10 +26,10 @@ if (err) {
                 birthDate : result[0].birth_date,
                 username : result[0].username,
                 role : result[0].role,
-                email : result[0].email
+                email : result[0].email,
+                type : "teacher"
             },
-            token : ""  ,
-            type : "teacher"
+            token : ""
         };
         if (state){
             data.token = JWT.sign({ data: data.profile}, JsonWebTokenCode, { expiresIn: "31d" });

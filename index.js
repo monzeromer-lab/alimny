@@ -5,14 +5,14 @@ const HOST = require("./config/keys.json").host;
 const webSocketEvent = require("./config/webSocketEvents.json");
 const webSocketNatifications = require("./websockets/natifications");
 const webSocketOptions = require("./config/webSocketOptions.json");
-const RateLimit = require("express-rate-limit");
+// const RateLimit = require("express-rate-limit");
 require("stackify-node-apm");
 
 
-const limiter = new RateLimit({
-  windowMs: 1*60*1000, // 1 minute
-  max: 5
-});
+// const limiter = new RateLimit({
+//   windowMs: 1*60*1000, // 1 minute
+//   max: 5
+// });
 
 /* create the request Listener */
 const app = express();
@@ -24,7 +24,7 @@ const server = http.createServer(app);
 app.use(express.json());
 
 /* Rate Limit */
-app.use(limiter);
+// app.use(limiter);
 
 /* serving static files */
 app.use(express.static("public"));
