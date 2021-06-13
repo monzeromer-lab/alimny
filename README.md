@@ -61,13 +61,11 @@ Project is: _in progress_
  Project inspired by [Code_sudan](https://codesudan.io/) and [Discord](https://discord.com/)
 
 ## Contact
-Created by [@monzersmiledev](https://twitter.com/monzersmiledev/) feel free to contact me and contribute with me please!
-
-monzersmiledev@outlook.com
-
-+249121601505
-
-monzersmiledev
+[@monzersmiledev](https://twitter.com/monzersmiledev/)
+[Email](monzersmiledev@outlook.com)
+[WhatsApp](https://wa.me/249121601505)
 
 ## Build By
 [Monzer Omer](https://github.com/monzersmiledev) , [Saddam Arbaa](https://github.com/saddamarbaa) and [Mohammed Gadeen](https://github.com/Gadeenz)
+
+please feel free to contact and contribute with us!
