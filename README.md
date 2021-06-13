@@ -18,9 +18,11 @@ Free Open source API for education systems built by the power of JavaScript and 
 
 
 ## Technologies
-* Express js
-* Socket io
-* MySQL 
+  🌐 &nbsp;
+   ![JavaScript](https://img.shields.io/badge/-JavaScript-333333?style=flat&logo=javascript)
+   ![Node.js](https://img.shields.io/badge/-Node.js-333333?style=flat&logo=node.js)
+  🛢 &nbsp;
+   ![MySQL](https://img.shields.io/badge/-MySQL-333333?style=flat&logo=mysql) 
 
 ## Setup
 1. install npm modules with `npm install` command 
