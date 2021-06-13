@@ -1,6 +1,7 @@
 ﻿# Alimny Online
 > Open source Online Education system API
-> A ready to use system allows you to make your mission easier to teach online class , train and manage your team
+
+A ready to use system allows you to make your mission easier to teach online class , train and manage your team
 
 ## Table of contents
 * [General info](#general-info)
