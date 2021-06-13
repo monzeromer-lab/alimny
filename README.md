@@ -18,10 +18,10 @@ Free Open source API for education systems built by the power of JavaScript and 
 
 
 ## Technologies
-  🌐 &nbsp;
+-  🌐 &nbsp;
    ![JavaScript](https://img.shields.io/badge/-JavaScript-333333?style=flat&logo=javascript)
    ![Node.js](https://img.shields.io/badge/-Node.js-333333?style=flat&logo=node.js)
-  🛢 &nbsp;
+-  🛢 &nbsp;
    ![MySQL](https://img.shields.io/badge/-MySQL-333333?style=flat&logo=mysql) 
 
 ## Setup
