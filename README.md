@@ -61,9 +61,16 @@ Project is: _in progress_
  Project inspired by [Code_sudan](https://codesudan.io/) and [Discord](https://discord.com/)
 
 ## Contact
-[@monzersmiledev](https://twitter.com/monzersmiledev/)
-[Email](monzersmiledev@outlook.com)
-[WhatsApp](https://wa.me/249121601505)
+<p>
+<a href="mailto:monzersmiledev@outlook.com"><img alt="Email" src="https://img.shields.io/badge/Email-monzersmiledev@outlook.com-blue?style=flat-square&logo=gmail"></a>
+<a href="https://www.linkedin.com/in/monzersmiledev/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Monzer%20Abdullaziz%20-blue?style=flat-square&logo=linkedin"></a>
+<a href="https://www.instagram.com/monzersmiledev/"><img alt="Instagram" src="https://img.shields.io/badge/Instagram-monzersmiledev-blue?style=flat-square&logo=instagram"></a>
+
+[![Facebook Badge](https://img.shields.io/badge/-Facebook-3b5998?style=flat-square&labelColor=3b5998&logo=facebook&logoColor=white&link=https://www.facebook.com/monzersmiledev/)](https://www.facebook.com/monzersmiledev)
+[![Whatsapp Badge](https://img.shields.io/badge/-Whatsapp-4CA143?style=flat-square&labelColor=4CA143&logo=whatsapp&logoColor=white&link=https://api.whatsapp.com/send?phone=+249121601505&text=Hi!)](https://api.whatsapp.com/send?phone=+249121601505&text=Hi!)
+[![Twitter Badge](https://img.shields.io/badge/-Twitter-1da1f2?style=flat-square&labelColor=1da1f2&logo=twitter&logoColor=white&link=https://www.twitter.com/monzersmiledev/)](https://twitter.com/monzersmiledev/)
+
+</p>
 
 ## Build By
 [Monzer Omer](https://github.com/monzersmiledev) , [Saddam Arbaa](https://github.com/saddamarbaa) and [Mohammed Gadeen](https://github.com/Gadeenz)
