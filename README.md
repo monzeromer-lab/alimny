@@ -1,5 +1,6 @@
 ﻿# Alimny Online
 > Open source Online Education system API
+> A ready to use system allows you to make your mission easier to teach online class , train and manage your team
 
 ## Table of contents
 * [General info](#general-info)
@@ -9,6 +10,7 @@
 * [Status](#status)
 * [Inspiration](#inspiration)
 * [Contact](#contact)
+* [Owners](#build-by)
 
 ## General info
 Free Open source API for education systems built by the power of JavaScript and Node,js 
@@ -42,19 +44,19 @@ Free Open source API for education systems built by the power of JavaScript and 
 
 ## Features
 List of features ready and TODOs for future development:
-* join online live class
-* anyone can create he's own school
-* ..working on this
+* Online class (live – Recorded).
+* Real Time Chats between (school team) , (students – teacher) , (students in a specific Lecture)
+* Timeline (allow all the user to post an article or a just a small post contains text and media like pictures or videos or both)
+* Schedule a class
+* Real time questions in the live lecture (also allow the teacher to pin a question in the video)
 
 To-do list:
-* i should even type this list working in on this..
+* We'll start the project over again and remove the current version for better project structure and security improvements. 
 
 ## Status
 Project is: _in progress_
-I'm working on it in my free time
 
 ## Inspiration
-Build By Monzer Omer
  Project inspired by [Code_sudan](https://codesudan.io/) and [Discord](https://discord.com/)
 
 ## Contact
@@ -65,3 +67,6 @@ monzersmiledev@outlook.com
 +249121601505
 
 monzersmiledev
+
+## Build By
+[Monzer Omer](https://github.com/monzersmiledev) , [Saddam Arbaa](https://github.com/saddamarbaa) and [Mohammed Gadeen](https://github.com/Gadeenz)
