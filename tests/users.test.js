@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
 const supertest = require("supertest");
-const app = require("../api/index");
-describe("admin login Endpoint",() => { 
+const app = require("../routers/index");
+describe("users register & login Endpoint",() => { 
     it("should signup",  () => {
 
        supertest(app)
-       .post("/api/users/admin/signup")
+       .post("/api/users/register")
        .field("email", "wizmg@gmail.com")
        .field("password" , "password")
        .field("username" , "monzersmiledev")
@@ -22,108 +22,13 @@ describe("admin login Endpoint",() => {
 it("should login",() => {
 
   supertest(app)
-  .post("/api/users/admin/signup")
+  .get("/api/users/login")
   .field("email", "wizmg@gmail.com")
   .field("password" , "password")
   .field("username" , "monzersmiledev")
-  .field("first_name" , "Monzer")
-  .field("last_name" , "Omer")
-  .field("birth_date" , 0)
-  .attach("image", "../public/images/image-1621410473913.jpg")
   .expect(response => {
     expect(response.status).toBe(202);
     done();
   });
-});
-
-it("should update",() => {
-
-  supertest(app)
-  .post("/api/users/admin/update")
-  .set("Authorization", "")
-  .field("email", "wizmg@gmail.com")
-  .field("password" , "password")
-  .field("username" , "monzersmiledev")
-  .field("first_name" , "Ali")
-  .field("last_name" , "Omer")
-  .field("birth_date" , 0)
-  .field("profileId" , 43)
-  .attach("image", "../public/images/image-1621410473913.jpg")
-  .expect(response => {
-    expect(response.status).toBe(201);
-    done();
-  });
-});
-});
-
-describe("students Endpoint", () => { 
-  it("should signup",  () => {
-      supertest(app)
-     .post("/api/users/students/signup")
-     .field("email", "wizmgbrown@gmail.com")
-     .field("password" , "password")
-     .field("username" , "monzersmiledev")
-     .field("first_name" , "Monzer")
-     .field("last_name" , "Omer")
-     .field("sex" , "male")
-     .field("birth_date" , 0)
-     .attach("image", "../public/images/image-1621410473913.jpg")
-     .expect(response => {
-       expect(response.status).toBe(201);
-       done();
-     });
-   });
-
-it("should login",  () => {
- supertest(app)
-.post("/api/users/students/signup")
-.field("email", "wizmgbrown@gmail.com")
-.field("password" , "password")
-.field("username" , "monzersmiledev")
-.field("first_name" , "Monzer")
-.field("last_name" , "Omer")
-.field("birth_date" , 0)
-.field("sex" , "male")
-.attach("image", "../public/images/image-1621410473913.jpg")
-.expect(response => {
-  expect(response.status).toBe(202);
-  done();
-});
-});
-});
-
-describe("teachers Endpoint", () => { 
-  it("should signup",  () => {
-      supertest(app)
-     .post("/api/users/teachers/signup")
-     .field("email", "wizmgbrown@gmail.com")
-     .field("password" , "password")
-     .field("username" , "monzersmiledev")
-     .field("first_name" , "Monzer")
-     .field("last_name" , "Omer")
-     .field("sex" , "male")
-     .field("birth_date" , 0)
-     .attach("image", "../public/images/image-1621410473913.jpg")
-     .expect(response => {
-       expect(response.status).toBe(201);
-       done();
-     });
-   });
-
-it("should login",  () => {
- supertest(app)
-.post("/api/users/teachers/signup")
-.field("email", "wizmgbrown@gmail.com")
-.field("password" , "password")
-.field("username" , "monzersmiledev")
-.field("first_name" , "Monzer")
-.field("last_name" , "Omer")
-.field("birth_date" , 0)
-.field("sex" , "male")
-.attach("image", "../public/images/image-1621410473913.jpg")
-.expect(response => {
-  expect(response.status).toBe(202);
-  done();
-});
 });
 });
