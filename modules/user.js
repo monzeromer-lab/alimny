@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("./database");
 
@@ -11,19 +12,19 @@ const users = sequelize.define("users", {
         allowNull : false,
         unique: true
     },
-    firstname: {
+    firstName: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    lastname: {
+    lastName: {
         type: DataTypes.STRING,
         allowNull: false
     }, 
-    profile_pic: {
+    image: {
         type: DataTypes.STRING,
-        defaultValue: ""
+        defaultValue: "/public/images/blank.png"
     },
-    birth_date:{
+    birthDate:{
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
     },
@@ -38,11 +39,24 @@ const users = sequelize.define("users", {
     },
     role: {
         type : DataTypes.STRING,
-        allowNull:false
+        allowNull:false,
+        defaultValue : 0
     },
+    verification_code: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
+    verified: {
+        type: DataTypes.TINYINT,
+        defaultValue: 0
+    },
+    active: {
+        type: DataTypes.TINYINT,
+        defaultValue: 1
+    }
     }, {
         freezeTableName: true
     }
 );
-
+users.sync();
 module.exports = users;

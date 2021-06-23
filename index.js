@@ -30,7 +30,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 /* external api routers */
-app.use("/" , require("./api/index"));
+app.use("/" , require("./routers/index"));
 
 /* built in Routers */
 app.get("*" , (req , res)=>{

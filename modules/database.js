@@ -6,6 +6,7 @@ const { Sequelize } = require("sequelize");
 const sequelize = new Sequelize(MySqlConnentionKeys.database, MySqlConnentionKeys.user, MySqlConnentionKeys.password, {
     host: MySqlConnentionKeys.host,
     dialect: "mysql",
+    logging: false,
     pool: {
       max: 30,
       min: 0,
