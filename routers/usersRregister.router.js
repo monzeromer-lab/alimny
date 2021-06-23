@@ -7,17 +7,6 @@ const loginRouter = express();
 loginRouter.use(express.json());
 loginRouter.use(express.urlencoded({extended : true}));
 
-/*
-body:
-username
-email
-password
-first name
-last name
-birth date
-profile picture (file)
-*/
-
 loginRouter.post("/api/users/register" ,async (req , res , next) => {
 
     const body = await registerValidate.validate({
