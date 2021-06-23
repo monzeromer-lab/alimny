@@ -1,7 +1,8 @@
 const express = require("express");
 const users = require("../modules/user");
 const registerValidate = require("../validition/userSchema.joi").registerSchema;
-var bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
+const sendEmail = require("../mail/mailProcess");
 const loginRouter = express();
 
 loginRouter.use(express.json());
@@ -27,6 +28,7 @@ loginRouter.post("/api/users/register" ,async (req , res , next) => {
                 bcrypt.hash(body.value.password, salt, async function (err, hash) {
                     err ? next(err) : body.value.password = hash;
                     const register = await users.create(body.value);
+                    await sendEmail(body.value.email);
                     res.status(201).json(
                         {
                             error: true,

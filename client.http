@@ -1,4 +1,4 @@
-GET http://192.168.43.41:2022/api/users/login HTTP/1.1
+POST http://192.168.43.41:2022/api/users/register HTTP/1.1
 Content-Type: application/json
 
 {
@@ -6,6 +6,6 @@ Content-Type: application/json
 "firstName" : "monzer",
 "lastName" : "omer",
 "birthDate" : "2000-10-26",
-"email" : "nezonru87@yahoo.com",
+"email" : "monzersmiledev@outlook.com",
 "password" : "Password123"
 }
