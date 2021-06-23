@@ -1,6 +1,6 @@
 const Joi = require("joi");
 
-const loginSchema = Joi.object({
+const registerSchema = Joi.object({
 
     username:
         Joi.string()
@@ -49,4 +49,27 @@ const loginSchema = Joi.object({
         .label("birth date")
 });
 
-module.exports = loginSchema;
+const loginSchema = Joi.object({
+
+    username:
+        Joi.string()
+        .max(20)
+        .min(8)
+        .lowercase()
+        .optional()
+        .alphanum()
+        .label("username")
+
+    ,password: 
+        Joi.string()
+        .alphanum()
+        .required()
+        .label("password")
+
+    ,email: 
+        Joi.string()
+        .email()
+        .required()
+        .label("email")
+});
+module.exports = {registerSchema , loginSchema};

@@ -1,6 +1,6 @@
 const express = require("express");
 const users = require("../modules/user");
-const registerValidate = require("../validition/userSchema.joi");
+const registerValidate = require("../validition/userSchema.joi").registerSchema;
 var bcrypt = require("bcryptjs");
 const loginRouter = express();
 
