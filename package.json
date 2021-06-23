@@ -1,7 +1,7 @@
 {
-  "name": "golden-tiger-api",
+  "name": "alimny-api",
   "version": "1.0.0",
-  "description": "An API For Golden Tiger Plastic Factory System",
+  "description": "An API For Alimny Application",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -11,7 +11,8 @@
     "Express.js",
     "MySQL",
     "JWT",
-    "Socket.io"
+    "Socket.io",
+    "paypal"
   ],
   "author": "Monzer Omer",
   "license": "ISC",
@@ -23,6 +24,8 @@
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.2",
     "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2",
     "socket.io": "^4.0.2"
   },
   "devDependencies": {
