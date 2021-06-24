@@ -12,8 +12,5 @@ module.exports.isAuth = (req , res , next) => {
     }); 
     } else {
         res.status(401).json({error : true , message : "you are not authentecated" , data : []});
-    }
-    
-
-       
+    } 
 };
