@@ -1,12 +1,13 @@
 const nodemailer = require("nodemailer");
 const { uuid } = require("uuidv4");
 const users = require("../modules/user");
+const config = require("../config/keys.json").mail;
 module.exports = async (email) => {
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "wizmgbrown@gmail.com",
-      pass: require("../config/keys.json").pass // naturally, replace both with your real credentials or an application-specific password
+      user: config.email,
+      pass: config.password // naturally, replace both with your real credentials or an application-specific password
     }
   });
   const verificationCode = uuid();
@@ -22,12 +23,12 @@ const transporter = nodemailer.createTransport({
     from: "noreplay@alimny.com",
     to: email,
     subject: "Active your Account",
-    text: `go to this link to verify your account: \n http://localhost:/api/users/verify/${verificationCode}`
+    text: `go to this link to verify your account: \n http://localhost:2022/api/users/verify/${verificationCode}`
   };
   
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
-      return {state : false ,  data : info};
+      return {state : false ,  data : error};
     } else {
       return {state : true , data : info};
     }

@@ -1,11 +1,9 @@
-// const mysql = require("mysql");
-const MySqlConnentionKeys = require("../config/keys.json").database;
-// const mySqlConnection = mysql.createPool(MySqlConnentionKeys);
+const config = require("../config/keys.json").database;
 const { Sequelize } = require("sequelize");
 
-const sequelize = new Sequelize(MySqlConnentionKeys.database, MySqlConnentionKeys.user, MySqlConnentionKeys.password, {
-    host: MySqlConnentionKeys.host,
-    dialect: "mysql",
+const sequelize = new Sequelize(config.database, config.user, config.password, {
+    host: config.host,
+    dialect: config.type,
     logging: false,
     pool: {
       max: 30,
@@ -14,6 +12,5 @@ const sequelize = new Sequelize(MySqlConnentionKeys.database, MySqlConnentionKey
       idle: 10000
     }
   });
-
 
 module.exports = sequelize;
