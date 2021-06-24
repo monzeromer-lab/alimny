@@ -1,11 +1,17 @@
 {
     "database" : {
+        "connectionLimit" : 0,
         "host"            : "example.org",
         "user"            : "bob",
         "password"        : "secret",
-        "database"        : "my_db"
+        "database"        : "my_db",
+        "type" : "database type e.g: mysql , sqlite ...etc"
     },
     "TokenSecret" : "",
     "port" : 2022,
-    "host" : "localhost"
+    "host" : "localhost",
+    "mail" : {
+        "email" : "",
+        "password" : ""
+    }
 }
