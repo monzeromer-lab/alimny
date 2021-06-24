@@ -41,7 +41,7 @@ loginRouter.post("/api/users/register" ,upload.single("image") ,async (req , res
         firstName : req.body.firstName,
         lastName: req.body.lastName,
         email : req.body.email,
-        image : req.file.path,
+        image : req.body.image,
         birthDate : req.body.birthDate
     });
     
