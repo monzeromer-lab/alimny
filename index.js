@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */
 const express = require("express");
 const http = require("http");
+const path = require("path");
 const PORT = require("./config/keys.json").port;
 const HOST = require("./config/keys.json").host;
 const webSocketEvent = require("./config/webSocketEvents.json");
@@ -27,13 +29,15 @@ app.use(express.json());
 // app.use(limiter);
 
 /* serving static files */
-app.use(express.static("public"));
+// eslint-disable-next-line quotes
+app.use("/public" , express.static(path.join(__dirname, 'public')));
 
 /* external api routers */
 app.use("/" , require("./routers/index"));
 
 /* built in Routers */
 app.get("*" , (req , res)=>{
+    console.log(req.url);
         res.status(404).json({error : true , message: "not found!" , data : []}); 
 });
 

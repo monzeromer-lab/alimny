@@ -1,11 +1,14 @@
-POST http://192.168.43.41:2022/api/users/register HTTP/1.1
-Content-Type: application/json
+# POST http://192.168.43.41:2022/api/users/register HTTP/1.1
+# Content-Type: application/json
 
-{
-"username": "monzersmiledev",
-"firstName" : "monzer",
-"lastName" : "omer",
-"birthDate" : "2000-10-26",
-"email" : "monzersmiledev@outlook.com",
-"password" : "Password123"
-}
+# {
+# "username": "smiledev",
+# "firstName" : "monzer",
+# "lastName" : "omer",
+# "birthDate" : "2000-10-26",
+# "email" : "nezonru87@yahoo.com",
+# "password" : "Password123"
+# }
+
+
+GET  http://192.168.43.41:2022/api/users/verify/5c5ab73-b055-44e1-99ab-308591dbbfdb

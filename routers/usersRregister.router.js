@@ -2,13 +2,38 @@ const express = require("express");
 const users = require("../modules/user");
 const registerValidate = require("../validition/userSchema.joi").registerSchema;
 const bcrypt = require("bcryptjs");
+const multer = require("multer");
+const path = require("path");
 const sendEmail = require("../mail/mailProcess");
 const loginRouter = express();
 
 loginRouter.use(express.json());
 loginRouter.use(express.urlencoded({extended : true}));
 
-loginRouter.post("/api/users/register" ,async (req , res , next) => {
+const  storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null,"./public/images/");
+    },
+    filename: function (req, file, cb) {
+      cb(null, "IMG-" + Date.now() + path.extname(file.originalname));
+    }
+  });
+  
+const  upload = multer({
+    storage: storage,
+    limits: {
+      fileSize: 1000000 // 1000000 Bytes = 1 MB
+    },
+    fileFilter(req, file, cb) {
+      if (!file.originalname.match(/\.(jpg)$/)) { 
+         // upload only png and jpg format
+         return cb(new Error("Please upload a jpg Image with less than 1MB size"));
+       }
+     cb(undefined, true);
+ }
+ });
+
+loginRouter.post("/api/users/register" ,upload.single("image") ,async (req , res , next) => {
 
     const body = await registerValidate.validate({
         username : req.body.username,
@@ -29,6 +54,7 @@ loginRouter.post("/api/users/register" ,async (req , res , next) => {
                     err ? next(err) : body.value.password = hash;
                     const register = await users.create(body.value);
                     await sendEmail(body.value.email);
+                    register.image = `\\${register.image}`;
                     res.status(201).json(
                         {
                             error: true,
