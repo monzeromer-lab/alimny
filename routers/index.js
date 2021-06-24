@@ -1,8 +1,8 @@
 const indexRouter = require("express").Router();
-const loginRouter = require("./userLogin.router");
-const registerRouter = require("./usersRregister.router");
 
-indexRouter.use("/" , registerRouter);
-indexRouter.use("/" , loginRouter);
+indexRouter.use("/" , require("./usersRregister.router"));
+indexRouter.use("/" , require("./userLogin.router"));
+indexRouter.use("/" , require("./verify.router"));
+
 
 module.exports = indexRouter;
