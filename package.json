@@ -14,7 +14,11 @@
     "Socket.io",
     "paypal"
   ],
-  "author": "Monzer Omer",
+  "authors": [
+    "Monzer Omer",
+    "Momen Daoud",
+    "Hamdi"
+  ],
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
