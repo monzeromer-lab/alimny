@@ -4,10 +4,10 @@ const sequelize = require("./database");
 
 const users = sequelize.define("users", {
     id : {
-        type : DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
         primaryKey: true,
-        autoIncrements:true,
-        allowNull:false 
     },
     username : {
         type : DataTypes.STRING,
@@ -49,9 +49,9 @@ const users = sequelize.define("users", {
         allowNull: false,
     },
     role: {
-        type : DataTypes.ENUM('user','teacher'),
+        type : DataTypes.ENUM('user','teacher','admin'),
         allowNull:false,
-        defaultValue : 'user'
+        defaultValue : 'admin'
     },
     verification_code: {
         type: DataTypes.TEXT,
@@ -69,5 +69,5 @@ const users = sequelize.define("users", {
         freezeTableName: true
     }
 );
-users.sync();
+users.sync({force:true});
 module.exports = users;

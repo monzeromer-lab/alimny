@@ -30,7 +30,7 @@ exports.register = async (req,res,next) => {
         const user = await User.findOne({
             where: {
                 [Op.or]: [
-                    {email: body.vlaue.email},
+                    {email: body.value.email},
                     {username: body.value.username},
                 ],
             }
@@ -43,8 +43,8 @@ exports.register = async (req,res,next) => {
         }
 
         // register a new user
-        const salt =  bcrypt.genSalt(10);
-        body.value.password =  bcrypt.hash(body.vlaue.password,salt);
+        const salt =  await bcrypt.genSalt(10);
+        body.value.password =  await bcrypt.hash(body.value.password,salt);
         const newUser = await User.create(body.value);
         await sendEmail(body.value.email);
         newUser.image = `\\${newUser.image}`;
@@ -101,7 +101,7 @@ exports.login = async (req,res,next) => {
 
         //Validate request body
         const {username , password , email} = req.body
-    	const body = await loginSchema.validate({ username, password, email});
+    	const body = await loginSchema.validate({ username, password, email})
 
         // find the user with the email
         const user = await User.findOne({ where: {email: body.value.email}});
@@ -115,6 +115,7 @@ exports.login = async (req,res,next) => {
          return res.status(404).json({error : true , message : "wrong password"});   
         }
 
+        console.log("nconconn")
         // sign in the user
         let token = JWT.sign({ id : user.id, role : user.role },
             secret,
