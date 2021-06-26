@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 const { Sequelize, DataTypes } = require("sequelize");
-const sequelize = require("./database");
+const sequelize = require("../db/database");
 
 const users = sequelize.define("users", {
     id : {

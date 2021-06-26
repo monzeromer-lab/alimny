@@ -1,4 +1,4 @@
-const User = require("../modules/user");
+const User = require("../models/user");
 const { Op } = require('sequelize');
 const bcrypt = require("bcryptjs");
 const secret = require("../config/keys.json").TokenSecret;
@@ -215,6 +215,7 @@ if (state && state.verified == 1){
 
 
 
+// File upload
 const  storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null,"./public/images/");
