@@ -1,4 +1,5 @@
 const User = require("../modules/user");
+const { Op } = require('sequelize');
 const bcrypt = require("bcryptjs");
 const secret = require("../config/keys.json").TokenSecret;
 const JWT = require("jsonwebtoken");
@@ -13,7 +14,6 @@ const sendEmail = require("../mail/mailProcess");
 //@access	Public
 exports.register = async (req,res,next) => {
     try{
-
         // Validation
     	const body = await registerValidate.validate({
             username : req.body.username,
@@ -25,18 +25,26 @@ exports.register = async (req,res,next) => {
             birthDate : req.body.birthDate
         });
 
+        
         // Check if user is already exists
-        const user = await User.findOne({where: {email: body.value.email}});
+        const user = await User.findOne({
+            where: {
+                [Op.or]: [
+                    {email: body.vlaue.email},
+                    {username: body.value.username},
+                ],
+            }
+        });
         if(user){
             return res.status(401).json({
                 error:true,
-                message:"Email is already token"
+                message:"Email or username is already token"
             });
         }
 
-        // Hash password and register a new user
-        const salt = await bcrypt.genSalt(10);
-        body.value.password = await bcrypt.hash(body.value.password,salt);
+        // register a new user
+        const salt =  bcrypt.genSalt(10);
+        body.value.password =  bcrypt.hash(body.vlaue.password,salt);
         const newUser = await User.create(body.value);
         await sendEmail(body.value.email);
         newUser.image = `\\${newUser.image}`;
@@ -45,8 +53,10 @@ exports.register = async (req,res,next) => {
             error:false,
             message:"Registered",
             data:newUser,
+            name: newUser.fullName,
         });
     }catch(error){
+        console.log(error)
         next(error);
     }
     // const user = await User.findOne({where: {username: body.value.username}});
@@ -165,11 +175,11 @@ exports.login = async (req,res,next) => {
 
 exports.verfiy = async (req,res,next) => {
     const state = await User.findOne({
-    attributes: ["verified"],
-    where: {
-        verification_code: req.params.code
-    } 
-});
+        attributes: ["verified"],
+        where: {
+            verification_code: req.params.code
+        } 
+    });
 
 if (state && state.verified == 1){
     res.status(403).json({error : true , message : "user is already verifed!" ,data : []});

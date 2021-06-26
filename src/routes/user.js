@@ -2,7 +2,10 @@ const express = require('express');
 const router = express.Router();
 const { getUsers , updateProfile } = require('../controllers/user'); //controller
 // middlewares
-const { isAuth } = require("../middillware/auth");
+const { isAuth , authorize } = require("../middlewares/auth");
+
+router.use(isAuth);
+router.use(authorize('admin'));
 
 //@desc  Get all users
 router.get('/',getUsers);

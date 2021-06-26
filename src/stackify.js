@@ -9,7 +9,7 @@ exports.config = {
   /**
    * Your environment name.
    */
-  environment_name: "Production",
+  environment_name: "Development",
   /**
    * Enable Prefix.
    */

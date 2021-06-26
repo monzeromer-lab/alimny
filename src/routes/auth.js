@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { login , register , verfiy } = require('../controllers/auth'); //controller
 // middlewares
-const { isAuth } = require("../middillware/auth");
+const { isAuth } = require("../middlewares/auth");
 
 //@desc login route
 router.post('/login',login);

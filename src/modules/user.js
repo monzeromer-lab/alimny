@@ -4,9 +4,10 @@ const sequelize = require("./database");
 
 const users = sequelize.define("users", {
     id : {
-        type : DataTypes.UUID,
-        defaultValue: DataTypes.v4,
-        primaryKey: true
+        type : DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrements:true,
+        allowNull:false 
     },
     username : {
         type : DataTypes.STRING,
@@ -20,7 +21,16 @@ const users = sequelize.define("users", {
     lastName: {
         type: DataTypes.STRING,
         allowNull: false
-    }, 
+    },
+    fullName: {
+      type: DataTypes.VIRTUAL,
+      get() {
+        return `${this.firstName} ${this.lastName}`;
+      },
+      set() {
+        throw new Error("can not set a value to this filed");
+      }
+    },
     image: {
         type: DataTypes.STRING,
         defaultValue: "/public/images/blank.png"
@@ -36,12 +46,12 @@ const users = sequelize.define("users", {
     },
     password: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
     },
     role: {
-        type : DataTypes.STRING,
+        type : DataTypes.ENUM('user','teacher'),
         allowNull:false,
-        defaultValue : 0
+        defaultValue : 'user'
     },
     verification_code: {
         type: DataTypes.TEXT,
@@ -59,5 +69,5 @@ const users = sequelize.define("users", {
         freezeTableName: true
     }
 );
-
+users.sync();
 module.exports = users;
