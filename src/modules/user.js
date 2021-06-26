@@ -5,9 +5,10 @@ const sequelize = require("./database");
 const users = sequelize.define("users", {
     id : {
         type : DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        defaultValue: DataTypes.v4,
         primaryKey: true
-    }, username : {
+    },
+    username : {
         type : DataTypes.STRING,
         allowNull : false,
         unique: true
@@ -58,5 +59,5 @@ const users = sequelize.define("users", {
         freezeTableName: true
     }
 );
-users.sync();
+
 module.exports = users;
