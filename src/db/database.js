@@ -1,9 +1,8 @@
-const config = require("../config/keys.json").database;
 const { Sequelize } = require("sequelize");
 
-const sequelize = new Sequelize(config.database, config.user, config.password, {
-    host: config.host,
-    dialect: config.type,
+const sequelize = new Sequelize(process.env.DATABASE_NAME, process.env.DATABASE_USERNAME, process.env.DATABASE_PASSWORD, {
+    host: process.env.DATABASE_HOST,
+    dialect: "mysql",
     logging: false,
     pool: {
       max: 30,

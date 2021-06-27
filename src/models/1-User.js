@@ -2,7 +2,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../db/database");
 
-const users = sequelize.define("users", {
+const User = sequelize.define("users", {
     id : {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -69,5 +69,5 @@ const users = sequelize.define("users", {
         freezeTableName: true
     }
 );
-users.sync({force:true});
-module.exports = users;
+
+module.exports = User;

@@ -1,4 +1,4 @@
-const User = require("../models/user");
+const User = require("../models/1-User");
 const { Op } = require('sequelize');
 const bcrypt = require("bcryptjs");
 const secret = require("../config/keys.json").TokenSecret;
@@ -99,7 +99,7 @@ exports.register = async (req,res,next) => {
 exports.login = async (req,res,next) => {
     try {
 
-        //Validate request body
+        // Validate request body
         const {username , password , email} = req.body
     	const body = await loginSchema.validate({ username, password, email})
 

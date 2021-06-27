@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 const { uuid } = require("uuidv4");
-const users = require("../modules/user");
+const User = require("../models/1-User");
 const config = require("../config/keys.json").mail;
 module.exports = async (email) => {
 const transporter = nodemailer.createTransport({
@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
   const verificationCode = uuid();
 
   // eslint-disable-next-line no-unused-vars
-  await users.update({ verification_code: verificationCode }, {
+  await User.update({ verification_code: verificationCode }, {
     where: {
       email: email
     }
@@ -23,7 +23,7 @@ const transporter = nodemailer.createTransport({
     from: "noreplay@alimny.com",
     to: email,
     subject: "Active your Account",
-    text: `go to this link to verify your account: \n http://localhost:2022/api/users/verify/${verificationCode}`
+    text: `go to this link to verify your account: \n http://localhost:2022/api/User/verify/${verificationCode}`
   };
   
   transporter.sendMail(mailOptions, function(error, info){
