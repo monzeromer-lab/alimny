@@ -26,6 +26,7 @@ const server = http.createServer(app);
 const auth = require('./routes/auth');
 const users = require('./routes/user');
 const categories = require('./routes/category');
+const courses = require('./routes/course');
 
 /* handle Json */
 app.use(express.json());
@@ -41,6 +42,7 @@ app.use("/public" , express.static(path.join(__dirname, '../public')));
 app.use('/api/v1/auth',auth);
 app.use('/api/v1/users',users);
 app.use('/api/v1/categories',categories);
+app.use('/api/v1/courses',courses);
 
 /* built in Routers */
 app.use("*" , (req , res)=>{
