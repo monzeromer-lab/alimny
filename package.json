@@ -4,8 +4,12 @@
   "description": "An API For Alimny Application",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "start": "node index"
+    "start": "node ./src/index",
+    "dev": "env-cmd -f  ./src/config/dev.env node index.js",
+    "test": "env-cmd -f ./src/config/test.env jest --watch"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [
     "Express.js",
@@ -14,12 +18,17 @@
     "Socket.io",
     "paypal"
   ],
-  "author": "Monzer Omer",
+  "authors": [
+    "Monzer Omer",
+    "Momen Daoud"
+  ],
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-rate-limit": "^5.2.6",
+    "express-validator": "^6.12.0",
     "global": "^4.4.0",
     "joi": "^17.4.0",
     "jsonwebtoken": "^8.5.1",
@@ -28,10 +37,12 @@
     "mysql2": "^2.2.5",
     "nodemailer": "^6.6.2",
     "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0",
     "socket.io": "^4.0.2",
     "uuidv4": "^6.2.10"
   },
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "eslint": "^7.27.0",
     "jest": "^26.6.3",
     "stackify-node-apm": "^1.15.0",
